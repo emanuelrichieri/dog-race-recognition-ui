@@ -13,6 +13,7 @@ export class QueryImagePage implements OnInit {
   uploadedFile: {base64: string, filename: string};
   queryResult: any[];
   range;
+  maxQuantity: number;
 
   constructor(private imagesService: ImagesService,
               private toastController: ToastController) { }
@@ -60,6 +61,12 @@ export class QueryImagePage implements OnInit {
               distance: image.distance
             }
           });
+          this.queryResult.sort((a: any, b: any) => {
+            return a.distance - b.distance;
+          });
+          if (this.maxQuantity && this.maxQuantity > 0) {
+            this.queryResult = this.queryResult.slice(0, this.maxQuantity);
+          }
         } else {
           this.presentError();
         }

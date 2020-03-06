@@ -37,6 +37,10 @@
     <ion-label position="floating">Rango</ion-label>
     <ion-input type="number" placeholder="Rango de la consulta" name="range" [(ngModel)]="range" ></ion-input>
   </ion-item>  
+  <ion-item>        
+    <ion-label position="floating">Cantidad máxima de resultados</ion-label>
+    <ion-input type="number" placeholder="Cantidad" name="range" [(ngModel)]="maxQuantity" ></ion-input>
+  </ion-item>  
   <input #fileInput style="display: none" type="file" accept="image/*" (change)="processFile(fileInput)">
   <ion-button color="primary" (click)="onAccept()" expand="block" [disabled]="uploading || !uploadedFile">
     <ion-label *ngIf="!uploading">Consultar</ion-label>
